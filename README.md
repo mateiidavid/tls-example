@@ -58,9 +58,9 @@ certificates must be provided.
 #
 # Run
 # 
-./tls-example server < /dev/null 2>/dev/null &
+./tls-example server > /dev/null 2>/dev/null &
 ./tls-example client
-
+204 No Content
 ```
 
 
