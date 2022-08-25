@@ -39,9 +39,10 @@ certificates must be provided.
 #
 :; step certificate create root.linkerd.cluster.local ca.crt ca.key \
        --profile root-ca --no-password --insecure --not-after 1m 
-;: step certificate create identity.linkerd. issuer.crt issuer.key \
+:; step certificate create identity.linkerd. issuer.crt issuer.key \
        --profile intermediate-ca --not-after 8760h --no-password --insecure \
        --ca ca.crt --ca-key ca.key
+:; step certificate bundle issuer.crt ca.crt bundle.crt 
 
 #
 # Generate client and server certs
@@ -58,8 +59,8 @@ certificates must be provided.
 #
 # Run
 # 
-./tls-example server > /dev/null 2>/dev/null &
-./tls-example client
+:; ./tls-example server > /dev/null 2>/dev/null &
+:; ./tls-example client
 204 No Content
 ```
 
